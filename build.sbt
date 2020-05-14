@@ -15,7 +15,8 @@ lazy val root = (project in file("."))
     libraryDependencies += akkaHttp,
     libraryDependencies += akkaStream,
     libraryDependencies += typesafeConf
-
-
+  )
+  .settings(
+      assemblyJarName in assembly := "flut.jar",
   )
 
