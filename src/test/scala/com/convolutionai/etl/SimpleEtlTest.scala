@@ -1,7 +1,7 @@
 package com.convolutionai.etl
 
 import com.convolutionai.flut.core.{Extractor, Loader, Transformer}
-import com.convolutionai.flut.elt.SimpleEtl
+import com.convolutionai.flut.etl.SimpleEtl
 
 import scala.util.Random
 import org.scalatest._

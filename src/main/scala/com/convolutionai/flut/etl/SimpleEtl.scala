@@ -1,4 +1,4 @@
-package com.convolutionai.flut.elt
+package com.convolutionai.flut.etl
 
 import com.convolutionai.flut.core.{Etl, Extractor, Loader, Transformer}
 
