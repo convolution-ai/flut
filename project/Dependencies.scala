@@ -1,5 +1,8 @@
 import sbt._
 
+/**
+ * @constructor asda
+ */
 object Dependencies {
 
 

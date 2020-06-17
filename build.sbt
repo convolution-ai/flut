@@ -1,7 +1,7 @@
 import Dependencies._
 import sbt.Keys.libraryDependencies
 
-ThisBuild / scalaVersion     := "2.13.2"
+ThisBuild / scalaVersion     := "2.12.0"
 ThisBuild / version          := "0.1.0"
 ThisBuild / organization     := "com.convolutionai"
 ThisBuild / organizationName := "flut"
@@ -34,7 +34,7 @@ scalacOptions ++= Seq(
   "-Xlint:adapted-args", // Warn if an argument list is modified to match the receiver.
   "-Xlint:constant", // Evaluation of a constant arithmetic expression results in an error.
   "-Xlint:delayedinit-select", // Selecting member of DelayedInit.
-  "-Xlint:doc-detached", // A Scaladoc comment appears to be detached from its element.
+  // "-Xlint:doc-detached", // A Scaladoc comment appears to be detached from its element.
   "-Xlint:inaccessible", // Warn about inaccessible types in method signatures.
   "-Xlint:infer-any", // Warn when a type argument is inferred to be `Any`.
   "-Xlint:missing-interpolator", // A string literal appears to be missing an interpolator id.
@@ -47,10 +47,11 @@ scalacOptions ++= Seq(
   "-Xlint:stars-align", // Pattern sequence wildcard must align with sequence component.
   "-Xlint:type-parameter-shadow", // A local type parameter shadows a type already in scope.
   "-Ywarn-dead-code", // Warn when dead code is identified.
-  "-Ywarn-extra-implicit", // Warn when more than one implicit parameter section is defined.
+  //  "-Ywarn-extra-implicit", // Warn when more than one implicit parameter section is defined.
   "-Ywarn-numeric-widen", // Warn when numerics are widened.
   "-Ywarn-value-discard", // Warn when non-Unit expression results are unused.
-  "-Ybackend-parallelism", "8", // Enable paralellisation — change to desired number!
-  "-Ycache-plugin-class-loader:last-modified", // Enables caching of classloaders for compiler plugins
-  "-Ycache-macro-class-loader:last-modified", // and macro definitions. This can lead to performance improvements.
+  //"-Ybackend-parallelism", "8", // Enable paralellisation — change to desired number!
+  //"-Ycache-plugin-class-loader:last-modified", // Enables caching of classloaders for compiler plugins
+  //"-Ycache-macro-class-loader:last-modified", // and macro definitions. This can lead to performance improvements.
+
 )
