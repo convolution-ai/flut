@@ -4,10 +4,11 @@ import com.convolutionai.flut.core.{Extractor, Loader, Transformer}
 import com.convolutionai.flut.etl.SimpleEtl
 
 import scala.util.Random
-import org.scalatest._
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.flatspec.AnyFlatSpec
 
 
-class SimpleEtlTest extends FlatSpec with Matchers{
+class SimpleEtlTest extends AnyFlatSpec with Matchers{
 
 
   "createSimpleEtl" should "return SimpleEtl outExample" in {
