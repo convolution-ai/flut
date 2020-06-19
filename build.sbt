@@ -1,10 +1,47 @@
 import Dependencies._
 import sbt.Keys.libraryDependencies
+import ReleaseTransformations._
 
 ThisBuild / scalaVersion     := "2.12.0"
 ThisBuild / version          := "0.1.0"
-ThisBuild / organization     := "com.convolutionai"
+ThisBuild / organization     := "com.convolution-ai"
 ThisBuild / organizationName := "flut"
+
+homepage := Some(url("http://www.convolution-ai.com/"))
+scmInfo := Some(ScmInfo(url("https://github.com/convolution-ai/flut"), "git@github.com:convolution-ai/flut.git"))
+developers := List(Developer("francotesei", "francotesei", "ftesei96@gmail.com", url("https://francotesei.github.io/")))
+licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0"))
+publishMavenStyle := true
+
+// disable publishw ith scala version, otherwise artifact name will include scala version
+// e.g cassper_2.11
+crossPaths := false
+
+// add sonatype repository settings
+// snapshot versions publish to sonatype snapshot repository
+// other versions publish to sonatype staging repository
+publishTo := Some(
+  if (isSnapshot.value)
+    Opts.resolver.sonatypeSnapshots
+  else
+    Opts.resolver.sonatypeStaging
+)
+
+releaseCrossBuild := true
+releaseProcess := Seq[ReleaseStep](
+  checkSnapshotDependencies, // check that there are no SNAPSHOT dependencies
+  inquireVersions, // ask user to enter the current and next verion
+  runClean, // clean
+  runTest, // run tests
+  setReleaseVersion, // set release version in version.sbt
+  commitReleaseVersion, // commit the release version
+  tagRelease, // create git tag
+  releaseStepCommandAndRemaining("+publishSigned"), // run +publishSigned command to sonatype stage release
+  setNextVersion, // set next version in version.sbt
+  commitNextVersion, // commint next version
+  releaseStepCommand("sonatypeRelease"), // run sonatypeRelease and publish to maven central
+  pushChanges // push changes to git
+)
 
 lazy val root = (project in file("."))
   .settings(
@@ -19,6 +56,8 @@ lazy val root = (project in file("."))
   .settings(
       assemblyJarName in assembly := "flut.jar",
   )
+
+
 
 scalacOptions ++= Seq(
   "-deprecation", // Emit warning and location for usages of deprecated APIs.
