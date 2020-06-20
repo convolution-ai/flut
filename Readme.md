@@ -6,13 +6,13 @@ Small and simple scala library for build ETLs.
 
 
 ### Add build SBT
-```
+```scala
 libraryDependencies += "com.convolution-ai" % "flut" % "0.1.0"
 ```
 
 ### Example
 
-```
+```scala
 
     type InputExample = Seq[Int]
     type OutExample = Seq[String]
