@@ -50,7 +50,7 @@ lazy val root = (project in file("."))
   )
 
 
-
+releaseIgnoreUntrackedFiles := true
 scalacOptions ++= Seq(
   "-deprecation", // Emit warning and location for usages of deprecated APIs.
   "-explaintypes", // Explain type errors in more detail.
