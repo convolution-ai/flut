@@ -15,7 +15,7 @@ class SimpleEtlTest extends AnyFlatSpec with Matchers{
 
     type InputExample = Seq[Int]
     type OutExample = Seq[String]
-    val inputExample = Seq.fill(10)(Random.nextInt)
+    val inputExample = Seq.fill(10)(Random.nextInt())
 
     object Extractor extends Extractor[InputExample] {
       override def extract(): InputExample = inputExample

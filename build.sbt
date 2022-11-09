@@ -2,8 +2,8 @@ import Dependencies._
 import sbt.Keys.libraryDependencies
 import ReleaseTransformations._
 
-ThisBuild / scalaVersion     := "2.12.0"
-ThisBuild / version          := "0.1.0"
+ThisBuild / scalaVersion     := "2.13.10"
+ThisBuild / version          := "0.3.0"
 ThisBuild / organization     := "com.convolution-ai"
 ThisBuild / organizationName := "flut"
 
@@ -43,9 +43,6 @@ lazy val root = (project in file("."))
     name := "flut",
 
     libraryDependencies += scalaTest % Test,
-    libraryDependencies += akkaActor,
-    libraryDependencies += akkaHttp,
-    libraryDependencies += akkaStream,
     libraryDependencies += typesafeConf
   )
   .settings(
@@ -72,7 +69,7 @@ scalacOptions ++= Seq(
   "-Xlint:inaccessible", // Warn about inaccessible types in method signatures.
   "-Xlint:infer-any", // Warn when a type argument is inferred to be `Any`.
   "-Xlint:missing-interpolator", // A string literal appears to be missing an interpolator id.
-  "-Xlint:nullary-override", // Warn when non-nullary `def f()' overrides nullary `def f'.
+ // "-Xlint:nullary-override", // Warn when non-nullary `def f()' overrides nullary `def f'.
   "-Xlint:nullary-unit", // Warn when nullary methods return Unit.
   "-Xlint:option-implicit", // Option.apply used implicit view.
   "-Xlint:package-object-classes", // Class or object defined in package object.
